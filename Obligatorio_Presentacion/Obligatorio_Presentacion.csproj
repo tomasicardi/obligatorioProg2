@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Obligatorio_Entidades\Obligatorio_Entidades.csproj" />
-    <ProjectReference Include="..\Obligatorio_Negocio\Obligatorio_Negocio.csproj" />
+    <ProjectReference Include="..\Obligatrio_Negocio\Obligatrio_Negocio.csproj" />
   </ItemGroup>
 
 </Project>
