@@ -1,6 +1,6 @@
 <Solution>
   <Project Path="Obligatorio_AccesoDatos/Obligatorio_AccesoDatos.csproj" />
   <Project Path="Obligatorio_Entidades/Obligatorio_Entidades.csproj" />
+  <Project Path="Obligatorio_Negocio/Obligatorio_Negocio.csproj" />
   <Project Path="Obligatorio_Presentacion/Obligatorio_Presentacion.csproj" />
-  <Project Path="Obligatrio_Negocio/Obligatrio_Negocio.csproj" />
 </Solution>
