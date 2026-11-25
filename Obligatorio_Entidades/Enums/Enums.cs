@@ -20,3 +20,18 @@ public enum TipoCliente
     Empresa,
     Organizacion
 }
+
+public enum EstadoSolicitud
+{
+    Pendiente,
+    Aceptada,
+    Rechazada,
+    Cancelada
+}
+
+public enum RolUsuario
+{
+    Administrativo,
+    Encargado,
+    Gerente
+}
