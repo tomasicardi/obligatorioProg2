@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Obligatrio_Negocio;
+namespace Obligatorio_Negocio;
 
 internal class Servicios
 {
