@@ -13,13 +13,13 @@ public class EquipamientoServicio : IEquipamientoServicio
 
     public EquipamientoServicio()
     {
-        _unidadRepositorio = new UnidadArchivo(); // Cuando esté la base de datos: new UnidadDb()
-        _stockRepositorio = new StockArchivo(); // Cuando esté la base de datos: new StockDb()
-        _tipoRepositorio = new TipoEquipamientoArchivo(); // Cuando esté la base de datos: new TipoEquipamientoDb()
-        _depositoRepositorio = new DepositoArchivo(); // Cuando esté la base de datos: new DepositoDb()
+        _unidadRepositorio = new UnidadArchivo(); 
+        _stockRepositorio = new StockArchivo(); 
+        _tipoRepositorio = new TipoEquipamientoArchivo(); 
+        _depositoRepositorio = new DepositoArchivo(); 
     }
 
-    // ---------------- Unidades (equipos individualizados) ----------------
+
 
     public int RegistrarUnidad(Unidad unidad)
     {
@@ -28,7 +28,7 @@ public class EquipamientoServicio : IEquipamientoServicio
         if (_unidadRepositorio.ExisteCodigoSerie(unidad.CodigoSerie, null))
             throw new ReglaNegocioException("Ya existe una unidad con ese código de serie.");
 
-        unidad.Estado = EstadoUnidad.Disponible; // toda unidad nueva entra disponible
+        unidad.Estado = EstadoUnidad.Disponible; 
         unidad.Id = _unidadRepositorio.Alta(unidad);
         return unidad.Id;
     }
@@ -51,9 +51,7 @@ public class EquipamientoServicio : IEquipamientoServicio
         return _unidadRepositorio.Buscar(tipoId, depositoId, estado);
     }
 
-    // Desde la pantalla de unidades solo se puede pasar a Disponible, En mantenimiento
-    // o Fuera de servicio. Reservado, En preparación y Alquilado los maneja el sistema
-    // cuando se trabaje con contrataciones (Entrega 4).
+
     public void CambiarEstado(int unidadId, EstadoUnidad nuevo)
     {
         Unidad unidad = _unidadRepositorio.ObtenerPorId(unidadId);
@@ -79,10 +77,8 @@ public class EquipamientoServicio : IEquipamientoServicio
         _unidadRepositorio.CambiarEstado(unidadId, unidad.Estado);
     }
 
-    // ---------------- Stock (elementos administrados por cantidad) ----------------
-
-    // Fija la cantidad total que hay de un tipo en un depósito.
-    // Si todavía no había stock registrado, lo crea.
+   
+  .
     public void AjustarStock(int depositoId, int tipoId, int cantidad)
     {
         if (cantidad < 0)
