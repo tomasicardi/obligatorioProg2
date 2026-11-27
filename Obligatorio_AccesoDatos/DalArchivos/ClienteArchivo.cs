@@ -10,7 +10,7 @@ public class ClienteArchivo : IClienteRepositorio
     public int Alta(Cliente cliente)
     {
         List<Cliente> clientes = LeerClientes();
-        // El Id nuevo es el mayor que exista + 1 (en SQL lo hará el IDENTITY).
+       
         cliente.Id = clientes.Count == 0 ? 1 : clientes.Max(c => c.Id) + 1;
         clientes.Add(cliente);
         GuardarClientes(clientes);
@@ -43,7 +43,7 @@ public class ClienteArchivo : IClienteRepositorio
         return LeerClientes().FirstOrDefault(c => c.Identificacion == documentoORut);
     }
 
-    // Busca por nombre o por documento/RUT (que contenga el texto, sin importar mayúsculas).
+    
     public List<Cliente> BuscarPorNombre(string nombre)
     {
         return LeerClientes()
@@ -52,7 +52,7 @@ public class ClienteArchivo : IClienteRepositorio
             .ToList();
     }
 
-    // excluirId: al modificar, no tenemos que compararnos con nosotros mismos.
+    
     public bool ExisteDocumento(string documentoORut, int? excluirId)
     {
         return LeerClientes().Any(c => c.Identificacion == documentoORut && c.Id != excluirId);
@@ -69,7 +69,7 @@ public class ClienteArchivo : IClienteRepositorio
         }
     }
 
-    // ---------------- Métodos auxiliares ----------------
+    
 
     private List<Cliente> LeerClientes()
     {

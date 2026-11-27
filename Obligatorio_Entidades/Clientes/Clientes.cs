@@ -6,9 +6,7 @@ using System.Text.Json.Serialization;
 namespace Obligatorio_Entidades;
 
 
-// Como Cliente es abstracta, al guardarla en JSON hay que indicar sus clases hijas.
-// Así el archivo guarda "$type": "Particular" (o Empresa / Organizacion) y al leerlo
-// se vuelve a crear el objeto del tipo correcto.
+
 [JsonDerivedType(typeof(Particular), "Particular")]
 [JsonDerivedType(typeof(Empresa), "Empresa")]
 [JsonDerivedType(typeof(Organizacion), "Organizacion")]
@@ -23,14 +21,13 @@ public abstract class Cliente
 
     public abstract TipoCliente ObtenerTipo();
 
-    // Propiedades de solo lectura para poder mostrarlas en la grilla.
-    // [JsonIgnore]: no se guardan en el archivo porque se calculan solas.
+ 
     [JsonIgnore]
     public TipoCliente Tipo => ObtenerTipo();
     [JsonIgnore]
     public string Identificacion => ObtenerIdentificacion();
 
-    // Particular devuelve su Documento; Empresa y Organización, su RUT.
+    
     public abstract string ObtenerIdentificacion();
 
 

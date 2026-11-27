@@ -3,14 +3,14 @@ using Obligatorio_Entidades;
 
 namespace Obligatorio_Negocio;
 
-// CU01 a CU04 - Gestión de clientes
+
 public class ClienteServicio : IClienteServicio
 {
     private IClienteRepositorio _repositorio;
 
     public ClienteServicio()
     {
-        _repositorio = new ClienteArchivo(); // Cuando esté la base de datos: new ClienteDb()
+        _repositorio = new ClienteArchivo(); 
     }
 
     public int Registrar(Cliente cliente)
@@ -33,7 +33,7 @@ public class ClienteServicio : IClienteServicio
         return cliente;
     }
 
-    // Si el criterio está vacío devuelve todos los clientes.
+   
     public List<Cliente> Buscar(string criterio)
     {
         if (string.IsNullOrWhiteSpace(criterio))
@@ -43,7 +43,7 @@ public class ClienteServicio : IClienteServicio
 
     public void Modificar(Cliente cliente)
     {
-        // Verificamos que exista (si no, lanza EntidadNoEncontradaException)
+        
         ObtenerPorId(cliente.Id);
 
         Validar(cliente);
@@ -60,13 +60,12 @@ public class ClienteServicio : IClienteServicio
         if (!cliente.Activo)
             throw new EstadoInvalidoException("El cliente ya está desactivado.");
 
-        // Entrega 4: no permitir desactivar si tiene contrataciones sin devolver
-        // (IContratacionRepositorio.ClienteTieneContratacionesSinDevolver).
+        
 
         _repositorio.Desactivar(id);
     }
 
-    // Usa la validación de la entidad (cada tipo de cliente valida sus datos).
+    
     private void Validar(Cliente cliente)
     {
         if (cliente == null)

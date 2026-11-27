@@ -94,5 +94,10 @@ namespace Obligatorio_Presentacion
                 MensajeHelper.MostrarError(ex);
             }
         }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
