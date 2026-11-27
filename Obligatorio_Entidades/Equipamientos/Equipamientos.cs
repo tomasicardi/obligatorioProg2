@@ -10,6 +10,9 @@ public class Deposito
     public string Nombre { get; set; }
     public string Direccion { get; set; }
     public bool Activo { get; set; } = true;
+
+    // Se usa para mostrar el depósito en ComboBox y grillas.
+    public override string ToString() => Nombre;
 }
 
 public class TipoEquipamiento
@@ -20,6 +23,8 @@ public class TipoEquipamiento
     public bool Individualizable { get; set; }
     public bool Activo { get; set; } = true;
     public List<Caracteristica> Caracteristicas { get; set; } = new();
+
+    public override string ToString() => Nombre;
 }
 
 public class ValorCaracteristica
