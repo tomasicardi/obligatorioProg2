@@ -5,7 +5,7 @@ using Obligatorio_Entidades;
 
 namespace Obligatorio_Negocio;
 
-// Excepción base de la capa de Negocio.
+
 public class NegocioException : Exception
 {
     public NegocioException(string mensaje) : base(mensaje) { }

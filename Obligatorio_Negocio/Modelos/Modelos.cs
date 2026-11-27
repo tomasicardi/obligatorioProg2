@@ -5,7 +5,7 @@ using Obligatorio_Entidades;
 
 namespace Obligatorio_Negocio;
 
-// Áreas del sistema, usadas para los permisos por rol.
+
 public enum Funcionalidad
 {
     Clientes,
@@ -29,6 +29,6 @@ public class ResultadoDisponibilidad
 {
     public List<DetalleDisponibilidad> Detalle { get; set; } = new();
 
-    // Hay disponibilidad si para cada tipo alcanza lo disponible.
+    
     public bool Disponible => Detalle.All(d => d.Disponible >= d.Solicitada);
 }
